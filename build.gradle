@@ -4,6 +4,19 @@ plugins {
     id 'com.android.library' version '7.2.2' apply false
 }
 
+allprojects {
+    repositories {
+        jcenter()
+        google() // Google's Maven repository
+
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
