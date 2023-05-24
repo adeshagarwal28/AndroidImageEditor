@@ -1,5 +1,6 @@
 package com.example.eulerityhackathon;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class MultipartPostAsyncTask extends AsyncTask<String, Void, Boolean> {
+
 
     private static final String TAG = MultipartPostAsyncTask.class.getSimpleName();
 
@@ -45,7 +47,7 @@ public class MultipartPostAsyncTask extends AsyncTask<String, Void, Boolean> {
 
                 @Override
                 public void onFailure(final Call call, final IOException e) {
-                    Log.d(TAG,"1.UPLOAD FAILED : "+e);
+                    Log.d(TAG,"UPLOAD FAILED : "+e);
                 }
 
                 @Override
@@ -62,7 +64,7 @@ public class MultipartPostAsyncTask extends AsyncTask<String, Void, Boolean> {
             return true;
         } catch (Exception ex) {
             // Handle the error
-            Log.d(TAG,"2. UPLOAD FAILED : "+ex);
+            Log.d(TAG,"UPLOAD FAILED : "+ex);
         }
         return false;
     }
@@ -72,6 +74,7 @@ public class MultipartPostAsyncTask extends AsyncTask<String, Void, Boolean> {
         if (response != null) {
             // Process the response
             Log.d(TAG, "Response: " + response);
+
         } else {
             Log.e(TAG, "Empty response");
         }

@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -80,8 +81,11 @@ public class ResultActivity extends AppCompatActivity {
                 String url = "https://eulerity-hackathon.appspot.com/upload";
                 FetchUrlAsyncTask fetchUrlAsyncTask = new FetchUrlAsyncTask();
                 fetchUrlAsyncTask.execute(url);
+                Toast.makeText(ResultActivity.this, "Edited Image will be uploaded", Toast.LENGTH_SHORT).show();
             }
         });
+
+
 
 
 

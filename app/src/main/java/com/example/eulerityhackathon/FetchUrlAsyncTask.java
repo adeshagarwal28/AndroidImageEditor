@@ -72,6 +72,7 @@ public class FetchUrlAsyncTask extends AsyncTask<String, Void, String> {
                 //String url = "https://example.com/upload";
                 MultipartPostAsyncTask multipartPostAsyncTask = new MultipartPostAsyncTask();
                 multipartPostAsyncTask.execute(imageUrl);
+
                 // Start the process to upload or display the image
                 // ...
             } catch (JSONException e) {
