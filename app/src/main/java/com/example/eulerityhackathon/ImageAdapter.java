@@ -129,9 +129,6 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
     }
 
     private void shareImage(Uri imageUri, String imageUrl) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        intent.setDataAndType(imageUri, "image/*");
 
         if (context instanceof Activity) {
 
