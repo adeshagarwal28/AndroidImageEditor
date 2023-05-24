@@ -137,6 +137,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
 
             Intent dsPhotoEditorIntent = new Intent(context, DsPhotoEditorActivity.class);
             dsPhotoEditorIntent.setData(imageUri);
+            dsPhotoEditorIntent.putExtra(DsPhotoEditorConstants.DS_PHOTO_EDITOR_OUTPUT_DIRECTORY, "output");
             ((Activity) context).startActivityForResult(dsPhotoEditorIntent, 200);
 
         }
