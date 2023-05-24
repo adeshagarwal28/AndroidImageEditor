@@ -1,30 +1,27 @@
 package com.example.eulerityhackathon;
 
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Application;
-import android.content.Intent;
-import android.os.Bundle;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import android.os.AsyncTask;
-import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
-//import androidx.recyclerview.widget.DividerItemDecoration;
 
 
 public class MainActivity extends AppCompatActivity {

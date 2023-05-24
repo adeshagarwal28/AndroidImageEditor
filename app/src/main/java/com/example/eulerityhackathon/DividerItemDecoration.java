@@ -7,7 +7,6 @@ import android.view.View;
 
 import androidx.annotation.DrawableRes;
 import androidx.core.content.ContextCompat;
-//import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
