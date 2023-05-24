@@ -69,6 +69,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         String imageUrl = imageUrls.get(position);
+        ImageInfo.originalUrl=imageUrl;
         Picasso.get().load(imageUrl).into(holder.imageView);
 
         holder.editButton.setOnClickListener(new View.OnClickListener() {
@@ -88,9 +89,10 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
 
 
     class DownloadImageTask extends AsyncTask<String, Void, Uri> {
+        String imageUrl;
         @Override
         protected Uri doInBackground(String... urls) {
-            String imageUrl = urls[0];
+            imageUrl = urls[0];
             try {
                 URL url = new URL(imageUrl);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -121,12 +123,12 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         @Override
         protected void onPostExecute(Uri imageUri) {
             if (imageUri != null) {
-                shareImage(imageUri);
+                shareImage(imageUri, imageUrl);
             }
         }
     }
 
-    private void shareImage(Uri imageUri) {
+    private void shareImage(Uri imageUri, String imageUrl) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setDataAndType(imageUri, "image/*");
@@ -135,7 +137,6 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
 
             Intent dsPhotoEditorIntent = new Intent(context, DsPhotoEditorActivity.class);
             dsPhotoEditorIntent.setData(imageUri);
-            dsPhotoEditorIntent.putExtra(DsPhotoEditorConstants.DS_PHOTO_EDITOR_OUTPUT_DIRECTORY, "output");
             ((Activity) context).startActivityForResult(dsPhotoEditorIntent, 200);
 
         }
