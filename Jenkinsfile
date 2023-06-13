@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        ANDROID_HOME="/Users/adeshagarwal/Library/Android/sdk"
+        ANDROID_HOME="Users/adeshagarwal/Library/Android/sdk"
     }
     
     parameters {
