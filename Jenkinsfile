@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        ANDROID_HOME="/Users/adeshagarwal/Library/Android/sdk"
+    }
     
     parameters {
         choice(name: 'FLAVOUR', choices: ['Staging', 'Production'], description: 'Select the build flavor')
